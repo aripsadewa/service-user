@@ -2,7 +2,8 @@ const { User } = require('../../../models');
 
 module.exports = async (req, res) => {
 
-    const userIds = req.query.user_ids || [];
+    const ids = req.query.ids;
+    const userIds = ids.split(',');
 
     const sqlOPtions = {
         attributes: ['id', 'name', 'email', 'role', 'profession', 'avatar']
